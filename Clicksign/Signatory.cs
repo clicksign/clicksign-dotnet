@@ -13,5 +13,20 @@ namespace Clicksign
         /// Get or set E-mail
         /// </summary>
         public string Email { get; set; }
+
+        /// <summary>
+        /// Get or set DisplayName
+        /// </summary>
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Get or set Birthday
+        /// </summary>
+        public string Birthday { get; set; }
+
+        /// <summary>
+        /// Get or set Documentation
+        /// </summary>
+        public string Documentation {get; set;}
     }
 }

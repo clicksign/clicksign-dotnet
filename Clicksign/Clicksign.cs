@@ -15,6 +15,7 @@ namespace Clicksign
     /// </summary>
     public class Clicksign
     {
+        public RestRequest request { get; set; }
 
         /// <summary>
         /// Initialize new instance of class <see cref="Clicksign"/>
@@ -169,7 +170,7 @@ namespace Clicksign
                 throw new ArgumentNullException("signatories", "Signatories is empty");
 
             var client = new RestClient(Host);
-            var request = new RestRequest(string.Format("v1/documents/{0}/list", document.Key), Method.POST);
+            request = new RestRequest(string.Format("v1/documents/{0}/list", document.Key), Method.POST);
 
             request.AddHeader("Accept", "application/json");
             request.AddHeader("Content-Type", "application/json");
@@ -187,8 +188,13 @@ namespace Clicksign
 
                 request.AddParameter("signers[][email]", signatory.Email);
                 request.AddParameter("signers[][act]", action);
+                request.AddParameter("signers[][display_name]", signatory.DisplayName);
+                request.AddParameter("signers[][birthday]", signatory.Birthday);
+                request.AddParameter("signers[][documentation]", signatory.Documentation);
 
                 Log.Debug(string.Format("Send Signatory Email {0} and Action {1} to list", signatory.Email, action));
+                Log.Info(string.Format("request: {0}", request.ToString()));
+                System.Console.Out.WriteLine(string.Format("request: {0}", request.ToString()));
             }
             
             var response = Execute<Result>(client, request);
