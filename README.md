@@ -43,7 +43,7 @@ No arquivo de configuração do seu projeto adicione as linhas abaixo:
 
 ## <a name="utilizacao"></a>Utilização
 
-####<a name="utilizacao-lista-documento"></a>Recuperando lista de documentos
+#### <a name="utilizacao-lista-documento"></a>Recuperando lista de documentos
 
 Conforme a documentação http://clicksign.readme.io/v1.0/docs/listagem, é possível obter uma listagem de todos os documentos da conta além de informações extras pertinentes ao andamento da lista de assinatura. A listagem retornarár todos os documentos na conta, sem a necessidade de parâmetros de paginação ou busca.
 
@@ -54,7 +54,7 @@ var list = clicksign.List();
 Console.Write(list.Count);
 ```
 
-####<a name="utilizacao-recupera-documento"></a>Recuperando documento
+#### <a name="utilizacao-recupera-documento"></a>Recuperando documento
 
 Conforme a documentação http://clicksign.readme.io/v1.0/docs/visualizacao, é possível obter um documento da conta através da chave do documento, além de informações extras pertinentes ao andamento da lista de assinatura. 
 
@@ -65,7 +65,7 @@ var document = clicksign.Get("1123-4567-89ab-cdef");
 Console.Write(document.Key);
 ```
 
-####<a name="utilizacao-enviando-arquivo"></a>Enviando um arquivo
+#### <a name="utilizacao-enviando-arquivo"></a>Enviando um arquivo
 
 Conforme a documentação http://clicksign.readme.io/v1.0/docs/upload, o processo de envio de um documento para a Clicksign contempla a criação de um arquivo de log contendo informações de upload, usuário, etc, anexado a uma cópia do documento "carimbada" com um número de série. Ao final do processo haverá 2 arquivos na Clicksign: documento original e arquivo de log. Enquanto o arquivo é processado a requisição não fica bloqueada. O status do documento será working enquanto o processo ocorre. Após concluído, o status será open.
 
@@ -88,7 +88,7 @@ clicksign.Upload(fileBytes, fileName);
 Console.Write(clicksign.Document.Key);
 ```
 
-####<a name="utilizacao-criando-lista"></a>Criando uma lista de assinatura
+#### <a name="utilizacao-criando-lista"></a>Criando uma lista de assinatura
 
 Conforme a documentação http://clicksign.readme.io/v1.0/docs/lista-de-assinatura, é possível criar uma lista de assinatura e enviá-la a outras pessoas em uma única ação. Para isso, é necessário que estejam presentes os campos que especificam o documento, os signatários, e a mensagem.
 
@@ -108,7 +108,7 @@ clicksign.Signatories(document, new List<Signatory> {
 Console.Write(clicksign.Document.Key);
 ```
 
-####<a name="utilizacao-criando-hook"></a>Criando um Hook
+#### <a name="utilizacao-criando-hook"></a>Criando um Hook
 
 Conforme a documentação http://clicksign.readme.io/v1.0/docs/webhooks, é possível que a Clicksign notifique outras aplições à respeito da alteração de estado de um determinado documento.
 
@@ -121,7 +121,7 @@ var hook = clicksign.CreateHook(document, "https://www.linkedin.com/in/adrianoca
 Console.Write(hook.Id);
 ```
 
-####<a name="utilizacao-enviando-arquivo-lista-unica-chamada"></a>Enviando um arquivo e criando uma lista de assinatura em uma única chamada
+#### <a name="utilizacao-enviando-arquivo-lista-unica-chamada"></a>Enviando um arquivo e criando uma lista de assinatura em uma única chamada
 
 Conforme a documentação http://clicksign.readme.io/v1.0/docs/upload-e-lista-de-assinatura.
 
@@ -136,7 +136,7 @@ var document = clicksign.Upload(filePath)
 Console.Write(clicksign.Document.Key);	
 ```
 
-##<a name="release-notes"></a>Release Notes
+## <a name="release-notes"></a>Release Notes
 
 - Versão 1.0.0
 	- Primeira versão lançada no NuGet.
