@@ -187,6 +187,9 @@ namespace Clicksign
 
                 request.AddParameter("signers[][email]", signatory.Email);
                 request.AddParameter("signers[][act]", action);
+                request.AddParameter("signers[][display_name]", signatory.DisplayName);
+                request.AddParameter("signers[][birthday]", signatory.Birthday);
+                request.AddParameter("signers[][documentation]", signatory.Documentation);
 
                 Log.Debug(string.Format("Send Signatory Email {0} and Action {1} to list", signatory.Email, action));
             }
